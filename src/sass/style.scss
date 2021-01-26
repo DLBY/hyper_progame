@@ -1,11 +1,16 @@
+@import "responsive.scss";
 $dark : #191919;
 $primary: #C70A30;
 $white: #FFFFFF;
 
 * {
-  margin:0;
+  margin:8px;
   padding:0;
   box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
 }
 
 body {
@@ -17,22 +22,38 @@ p {
 }
 
 .title  {
+  font-weight: 600;
   text-decoration: none;
-  font-size: 40px;
+  font-size: 4vw;
   color:$primary;
 }
 
 header {
   display:flex;
-  margin:30px;
+  margin-bottom: 40px;
   flex-direction: row;
   justify-content: space-between;
   justify-items: center;
   align-items: center;
 }
 
+//grid layout
+.grid-container {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  padding: 10px;
+}
+
+
+.grid-item {
+  border: 1px solid rgba(0, 0, 0, 0.8);
+  padding: 20px;
+  font-size: 30px;
+  text-align: center;
+}
 //searchbar
 .searchbar {
+  display:flex;
   padding: 8px 12px;
   margin-top:14px;
   border: 2px solid $white;
@@ -58,6 +79,27 @@ header {
     outline: none;
     box-shadow: none;
     background-color: $dark;
-    color: $white;
   }
 }
+
+//welcome
+.saywelcome {
+  @extend .title;
+  color:$white;
+}
+
+.description {
+  text-align: left;
+  margin-left:10px;
+  margin-right:10px;
+}
+  //responsive
+@media #{$small} {
+    .searchbar {
+      width: 40%;
+      margin:0 auto;
+    }
+    .formInput {
+      width:70%;
+    }
+  }
