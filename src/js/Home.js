@@ -1,4 +1,5 @@
 import {welcome} from './components';
+import { iconsShow } from './utility';
 import { platformsIcons } from './utility';
 const Home = (argument = "") => {
 
@@ -57,12 +58,15 @@ const Home = (argument = "") => {
            
             articles += `
             
-              <div class="cardGame">
-              <img src="${article.background_image}" alt="${article.name}">
+            <div class="cardGame">
+              <img class="img-card" src="${article.background_image}" alt="${article.name}">
               <a href = "#pagedetail/${article.id}">${article.name}</a>
-              <div>
-              </div>
-            </div> 
+              <div>     
+                </div> 
+            <div id="icons">
+              ${iconsShow(article.parent_platforms)}
+            </div>
+          </div>
                 `;
           });
           document.querySelector(".page-list .articles").innerHTML = articles;

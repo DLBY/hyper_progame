@@ -6,7 +6,7 @@ module.exports = {
     publicPath: '/dist/',
     watchContentBase: true,
     compress: true,
-    port: 8080
+    port: 8000
   },
   entry: './src/js/index.js',
   output: {

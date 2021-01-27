@@ -3,6 +3,13 @@
 $dark : #191919;
 $primary: #C70A30;
 $white: #FFFFFF;
+
+@mixin margins {
+  margin-right: 4em;
+  margin-left: 4em;
+}
+
+
 * {
   margin:0;
   padding:0;
@@ -10,13 +17,19 @@ $white: #FFFFFF;
 }
 
 html {
+  height: 100%;
   font-family: 'Open Sans', sans-serif;
   font-size: 16px;
 }
 
 body {
+  position: relative;
+  min-height: 100%;
   margin: 50px;
   background-color:$dark;
+  padding-bottom: 5em;
+  -moz-box-sizing: border-box; 
+  box-sizing: border-box;
 }
 
 p {
@@ -105,6 +118,7 @@ $btn-bkg: $primary;
   text-align: center;
   justify-content:center;
   display:flex;
+  margin-bottom: 10px;
 }
 .loadBtn {
   margin:2em;
@@ -126,12 +140,12 @@ $btn-bkg: $primary;
   justify-content: space-between;
   justify-items: center;
   grid-template-columns: repeat(3, 32%);
-  grid-template-rows: repeat(3, 350px);
+  grid-template-rows: repeat(auto, 350px);
 }
 
-.cardGame img {
+.img-card {
+  height: 15vw;
   width: 100%;
-  height:15vw;
   object-fit: cover;
 }
 
@@ -146,7 +160,69 @@ $btn-bkg: $primary;
   display: none;
 }
 
-  //responsive
+//footer
+.redsquare {
+  margin-top:5px;
+  margin-bottom: 30px;
+  background-color: $primary;
+  height: 10px;
+  width:20%;
+}
+footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  flex-direction: column;
+  justify-items: center;
+  margin-top:20px;
+  color:$white;
+  padding-bottom: 2em;
+}
+
+//icons
+.platform-icon {
+  height: 2em;
+  margin-top: 1em;
+  margin-right: 1em;
+  margin-bottom: 1em;
+} 
+
+                                //*************** PageDetail **************
+//jumbo
+.jumbo {
+  display:flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  height: 45vw;
+  width: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.button {
+  @extend .loadBtn;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width:10em;
+  text-decoration: none;
+  justify-content: space-between;
+}
+
+.title-detail {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: space-between;
+}
+
+h2 {
+  @extend .saywelcome;
+  font-size: 2.5vw;
+}
+//responsive
 @media #{$small} {
     .searchbar {
       width: 40%;
