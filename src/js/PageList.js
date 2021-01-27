@@ -1,3 +1,4 @@
+import {welcome} from './components';
 const PageList = (argument = "") => {
   const preparePage = () => {
     let cleanedArgument = argument.replace(/\s+/g, "-");
@@ -15,9 +16,8 @@ const PageList = (argument = "") => {
           response.results.forEach((article) => {
             articles += `
                   <div class="cardGame">
-                    <h1>${article.name}</h1>
+                    <a href = "#pagedetail/${article.id}">${article.name}</a>
                     <h2>${article.released}</h2>
-                    <a href = "#pagedetail/${article.id}">${article.id}</a>
                   </div>
                 `;
           });
@@ -28,7 +28,9 @@ const PageList = (argument = "") => {
     fetchList("https://api.rawg.io/api/games", cleanedArgument);
   };
 
+  const welcomeShow = document.getElementById("welcome");
   const render = () => {
+    welcomeShow.innerHTML = `${welcome()}`;
     pageContent.innerHTML = `
       <section class="page-list">
         <div class="articles">...loading</div>

@@ -1,3 +1,5 @@
+import {welcome} from './components';
+import { platformsIcons } from './utility';
 const Home = (argument = "") => {
 
   const getDate = () => {
@@ -15,6 +17,27 @@ const Home = (argument = "") => {
     return `${fullCurrentDate},${fullNextYear}`
   };
 
+  let show = 0;
+  const getMaxGames = () => {
+    show = 0;
+    document.getElementById("load-div").innerHTML = "";
+    let game = document.getElementsByClassName("cardGame");
+
+    document.getElementsByClassName("cardgame").forEach((game) => {
+      game.classList.add("hidden");
+    });
+    for (let i = 0; i < 27; i++) {
+      if (i > 8) {
+        document.getElementById("load-div").innerHTML = `<div id ="loadmore" class="loadBtn">Show more</div>`;
+        break;
+      }
+      if (games[i].classList.contains(e.target.value)) {
+        games[i].classList.remove("hidden");
+        show++;
+      }
+    }
+ };
+
   const preparePage = () => {
     
     let cleanedArgument = getDate();
@@ -28,13 +51,18 @@ const Home = (argument = "") => {
       fetch(`${finalURL}`)
         .then((response) => response.json())
         .then((response) => {
+
           response.results.forEach((article) => {
-            articles += `     
-          <div class="cardGame">
-          <h1>${article.name}</h1>
-          <h2>${article.released}</h2>
-          <a href = "#pagedetail/${article.id}">${article.id}</a>
-          </div>
+            const parentPlatforms = article.parent_platforms;
+           
+            articles += `
+            
+              <div class="cardGame">
+              <img src="${article.background_image}" alt="${article.name}">
+              <a href = "#pagedetail/${article.id}">${article.name}</a>
+              <div>
+              </div>
+            </div> 
                 `;
           });
           document.querySelector(".page-list .articles").innerHTML = articles;
@@ -45,19 +73,16 @@ const Home = (argument = "") => {
   };
   const welcomeShow = document.getElementById("welcome");
   const render = () => {
+    welcomeShow.innerHTML = `${welcome()}`;
     pageContent.innerHTML = `
-    <section>
-        <h1 class="saywelcome">Welcome,</h1>
-        <p class="description">The Hyper Progame is the world's premier event for computer and video games and related products. At The Hyper Progame, the video game industy's top talent pack the Los Angeles Convention Center, connecting tens of thousands of the best, brightest, and most innovative in the interactive entertainment industy. For three exiting days, leading-edge compagnies, groundbrealing new technologies, and never-before seen products will be showcased. The Hyper Progame connects you with both new and existing partners, industry executives, gamers, and social influencers providing unprecedented exposure</p>
-        <div>
-          <select name="selectplatform">
-            <option value="any">Platform : Any</option>
-          </select>
-        </div>
-      </section>
+
 
       <section class="page-list">
-        <div class="articles">...loading</div>
+        <div class="grid-container articles">...loading</div>
+      
+      <div class="load-div">
+        <div id ="loadmore" class="loadBtn">Show more</div>
+        </div>
       </section>
     `;
 

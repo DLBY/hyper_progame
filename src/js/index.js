@@ -6,6 +6,8 @@ import "@fortawesome/fontawesome-free/js/regular";
 import "@fortawesome/fontawesome-free/js/brands";
 
 import { routes } from './routes';
+import { PageList } from './PageList';
+const searchBar = document.querySelector("form");
 let pageArgument;
 
 const setRoute = () => {
@@ -19,3 +21,12 @@ const setRoute = () => {
 
 window.addEventListener("hashchange", () => setRoute());
 window.addEventListener("DOMContentLoaded", () => setRoute());
+
+//PageList Game
+
+
+searchBar.addEventListener("submit", (e) => {
+  const gameSearch = document.getElementById("searchgame").value;
+  e.preventDefault();
+  PageList(gameSearch);
+});

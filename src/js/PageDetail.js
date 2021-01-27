@@ -22,7 +22,9 @@ const PageDetail = (argument) => {
     fetchGame("https://api.rawg.io/api/games/", cleanedArgument);
   };
 
+  const welcomeShow = document.getElementById("welcome");
   const render = () => {
+    welcomeShow.innerHTML = '';
     pageContent.innerHTML = `
       <section class="page-detail">
         <div class="article">

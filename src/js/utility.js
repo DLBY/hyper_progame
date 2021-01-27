@@ -1,0 +1,60 @@
+const platformsIcons = {
+  pc:
+    "<img data-id='1' src='src/images/icons/windows.svg' alt='' style='height :2em;'>",
+  playstation:
+    "<img data-id='2' src='src/images/icons/ps4.svg' alt='' style='height :2em;'>",
+  xbox:
+    "<img data-id='3' src='src/images/icons/xbox.svg' alt='' style='height :2em;'>",
+  ios:
+    "<img data-id='4' src='src/images/icons/mobile.svg' alt='' style='height :2em;'>",
+  android:
+    "<img data-id='8' src='src/images/icons/androi.svg' alt='' style='height :2em;'>",
+  mac:
+    "<img data-id='5' src='src/images/icons/apple.svg' alt='' style='height :2em;'>",
+  linux:
+    "<img data-id='6' src='src/images/icons/linux.svg' alt='' style='height :2em;'>",
+  nintendo:
+    "<img data-id='7' src='src/images/icons/switch.svg' alt='' style='height :2em;'>",
+  atari:
+    "<img data-id='9' src='src/images/icons/ghost-solid.svg' alt='' style='height :2em;'>",
+  "commodore-amiga":
+    "<img data-id='10' src='src/images/icons/ghost-solid.svg' alt='' style='height :2em;'>",
+  sega:
+    "<img data-id='11' src='src/images/icons/ghost-solid.svg' alt='' style='height :2em;'>",
+  "3do":
+    "<img data-id='12' src='src/images/icons/ghost-solid.svg' alt='' style='height :2em;'>",
+  "neo-geo":
+    "<img data-id='13' src='src/images/icons/ghost-solid.svg' alt='' style='height :2em;'>",
+  web:
+    "<img data-id='14' src='src/images/icons/ie.svg' alt='' style='height :2em;'><img data-id='14' src='src/images/icons/firefox.svg' alt='' style='height :2em;'><img data-id='14' src='src/images/icons/chrome.svg' alt='' style='height :2em;'>",
+};
+
+const storeIcons = {
+  steam:
+    "<img data-id='1' src='src/images/icons/steam.svg' alt='' style='height :2em;'>",
+  "playstation-store":
+    "<img data-id='2' src='src/images/icons/ps4.svg' alt='' style='height :2em;'>",
+  "xbox-store":
+    "<img data-id='3' src='src/images/icons/xbox.svg' alt='' style='height :2em;'>",
+  "apple-appstore":
+    "<img data-id='4' src='src/images/icons/applestore.svg' alt='' style='height :2em;'>",
+  gog:
+    "<img data-id='5' src='src/images/icons/gog.svg' alt='' style='height :2em;'>",
+  nintendo:
+    "<img data-id='6' src='src/images/icons/switch.svg' alt='' style='height :2em;'>",
+  xbox360:
+    "<img data-id='7' src='src/images/icons/xbox.svg' alt='' style='height :2em;'>",
+  "google-play":
+    "<img data-id='8' src='src/images/icons/googleplay.svg' alt='' style='height :2em;'>",
+  itch:
+    "<img data-id='9' src='src/images/icons/itch.svg' alt='' style='height :2em;'>",
+  "epic-games":
+    "<img data-id='10' src='src/images/icons/epic.svg' alt='' style='height :2em;'>",
+};
+
+// const iconsShow = (platforms) => {
+//   let platform = platforms.map(plat => plat.platform.slug);
+//   let icons = platform.forEach(plat => platformsIcons.plat);
+//   console.log(icons);
+// }
+export {platformsIcons, storeIcons};
