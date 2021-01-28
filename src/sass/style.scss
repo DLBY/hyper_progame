@@ -219,6 +219,8 @@ footer {
 .title-detail {
   @extend .title;
   color:$white;
+  margin-top:1em;
+  margin-bottom: 0.5em
 }
 
 .rating {
@@ -235,9 +237,14 @@ footer {
     margin-right: 10px;
   }
 
+iframe :focus {
+  outline: none;
+}
 h2 {
   @extend .saywelcome;
   font-size: 2.5vw;
+  margin-bottom: 0.5em;
+  margin-top: 0.5em;
 }
 
 h3 {
@@ -269,10 +276,20 @@ h3 {
 #youtube-video {
   display:flex;
   justify-content: space-between;
+  
 }
 
+#youtube-mini {
+  display:flex;
+  justify-content: space-evenly;
+}
 .first-yt {
   width: 60%;
+  margin:2em;
+}
+
+.title-ytb-first {
+  margin-top:2em;
 }
 
 //responsive
@@ -286,6 +303,11 @@ h3 {
     }
     .loadBtn {
       font-size: 1em;
+    }
+    .button {
+      width:7em;
+      font-size: 1em;
+      height: 3em;
     }
   }
 

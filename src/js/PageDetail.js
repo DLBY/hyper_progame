@@ -31,14 +31,14 @@ const PageDetail = (argument) => {
             .then((response) => response.json())
             .then((response) => {
               let youtubevideo = "";
-              if (response.results[i]) {
+              if (response.results) {
                     youtubevideo = `
                     <div class="first-yt">
                     <iframe width="100%" height="400" src="https://www.youtube.com/embed/${
                       response.results[0].external_id
                     }" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     </div>
-                    <div class="col-lg-6 text-center">
+                    <div class="title-ytb-first">
                     <h2 class="rating">${response.results[0].name}</h2>
                     <h3>${response.results[0].channel_title} - ${response.results[0].created}</h3>
                     </div>
@@ -49,7 +49,7 @@ const PageDetail = (argument) => {
                     for (let i = 1 ; i < 4 ; i++){
                       if (response.results[i]) {
                       youtubeMini += `
-                      <iframe width="560" height="315" src="https://www.youtube.com/embed/${response.results[i].external_id}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`
+                      <iframe width="30%" height="315" src="https://www.youtube.com/embed/${response.results[i].external_id}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`
                     }
                   }
                     document.getElementById("youtube-mini").innerHTML = youtubeMini;
