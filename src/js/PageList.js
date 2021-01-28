@@ -1,4 +1,5 @@
-import {welcome} from './components';
+import { welcome } from './components';
+import { iconsShow } from './utility';
 const PageList = (argument = "") => {
 
   let show = 0;
@@ -29,7 +30,7 @@ const PageList = (argument = "") => {
     const fetchList = (url, argument) => {
       let finalURL = url;
       if (argument) {
-        finalURL = url + "?search=" + argument;
+        finalURL = url + "?search=" + argument + "&page_size=27";
       }
 
       fetch(`${finalURL}`)
@@ -41,12 +42,15 @@ const PageList = (argument = "") => {
            
             articles += `
             
-              <div class="cardGame">
-            
+            <div class="cardGame">
+              <img class="img-card" src="${article.background_image}" alt="${article.name}">
               <a href = "#pagedetail/${article.id}">${article.name}</a>
-              <div>
-              </div>
-            </div> 
+              <div>     
+                </div> 
+            <div id="icons">
+              ${iconsShow(article.parent_platforms)}
+            </div>
+          </div>
                 `;
           });
           document.querySelector(".page-list .articles").innerHTML = articles;

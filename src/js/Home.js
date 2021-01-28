@@ -46,7 +46,7 @@ const Home = (argument = "") => {
     const fetchList = (url, argument) => {
       let finalURL = url;
       if (argument) {
-        finalURL = url + "?dates=" + argument;
+        finalURL = url + "?dates=" + argument + "&page_size=27";
       }
 
       fetch(`${finalURL}`)

@@ -51,8 +51,13 @@ const storeShow = (game) => {
   let iconsStore = ""
   game.stores.forEach(store => {
       let iconStore = store.store.slug;
-      iconsStore += storeIcons[`${iconStore}`]
+      iconsStore += `
+      <div>
+      <a class="store-name" href="${store.store.url}">${store.store.name}</a>
+      ${storeIcons[iconStore]}
+      </div>
+  `
   })
   return iconsStore;
 }
-export { iconsShow, storeShow, storeIcons }
+export { iconsShow, storeShow, storeIcons };

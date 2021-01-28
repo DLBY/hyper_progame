@@ -16,8 +16,10 @@ const PageDetail = (argument) => {
       .then((response) => {
         let screenshots = "";
         for (let i=0 ; i < 4 ; i++) {
+          if (response.results[i]) {
           screenshots += `<img src="${response.results[i].image}" alt="">`
         }
+      }
         document.getElementById("screen-shots").innerHTML = screenshots;
       })
     }
@@ -28,7 +30,9 @@ const PageDetail = (argument) => {
         fetch(`${finalURL}/youtube`)
             .then((response) => response.json())
             .then((response) => {
-                    let youtubevideo = `
+              let youtubevideo = "";
+              if (response.results[i]) {
+                    youtubevideo = `
                     <div class="first-yt">
                     <iframe width="100%" height="400" src="https://www.youtube.com/embed/${
                       response.results[0].external_id
@@ -38,14 +42,16 @@ const PageDetail = (argument) => {
                     <h2 class="rating">${response.results[0].name}</h2>
                     <h3>${response.results[0].channel_title} - ${response.results[0].created}</h3>
                     </div>
-              `
+              `     }
                     document.getElementById("youtube-video").innerHTML = youtubevideo;
-
+                  
                     let youtubeMini = "";
                     for (let i = 1 ; i < 4 ; i++){
+                      if (response.results[i]) {
                       youtubeMini += `
                       <iframe width="560" height="315" src="https://www.youtube.com/embed/${response.results[i].external_id}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`
                     }
+                  }
                     document.getElementById("youtube-mini").innerHTML = youtubeMini;
                 }
 
@@ -81,6 +87,29 @@ const PageDetail = (argument) => {
           let genres = response.genres.map(genre => genre.name).join(", ");
           let tags = response.tags.map(tag => tag.name).join(", ");
 
+
+          const trailer = () => {
+            let trailer = "";
+            if (response.clip) {
+              trailer = `
+              <video controls width ="100%">
+              <source src ="${response.clip.clip}" type="video/mp4">
+              </video>`
+            }
+            return trailer;
+          }
+          // if (response.clip.clip) {
+          //   document.getElementById("trailer").innerHTML = `
+          //   <video controls width ="100%">
+          //   <source src ="${response.clip.clip}" type="video/mp4">
+          // </video>`
+            
+          // } else {
+          //   document.getElementById("trailer").innerHTML = `No content`;
+          //   document.getElementById("youtube").innerHTML =
+          //     "<p>No data on this<p>";
+          // }
+
           gameDetail = `
           <div class="jumbo" style="background-image: url(${response.background_image});">
             <a href="${response.website}" class="button"><p>Check Website</p><i class="fas fa-caret-right fa-2x"></i></a>
@@ -106,13 +135,14 @@ const PageDetail = (argument) => {
               
               <section>
               <h2 class="title">BUY</h2>
+              ${storeShow(response)}
             </section>
 
             <section>
               <h2 class="title">TRAILER</h2>
-              <video controls width ="100%">
-              <source src ="${response.clip.clip}" type="video/mp4">
-              </video>
+              <div id="trailer">
+              ${trailer()}
+              </div>
             </section>
 
             <section>

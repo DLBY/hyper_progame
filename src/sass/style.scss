@@ -226,6 +226,15 @@ footer {
   font-size: 2.5vw;
 }
 
+  .store-name {
+    text-decoration: none;
+    color:$white;
+    text-decoration: underline $primary;
+    font-size:1.5em;
+    font-weight: bold;
+    margin-right: 10px;
+  }
+
 h2 {
   @extend .saywelcome;
   font-size: 2.5vw;
@@ -265,6 +274,7 @@ h3 {
 .first-yt {
   width: 60%;
 }
+
 //responsive
 @media #{$small} {
     .searchbar {
