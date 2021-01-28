@@ -30,17 +30,18 @@ const PageList = (argument = "") => {
             <div class="cardGame">
               <img class="img-card" src="${article.background_image}" alt="${article.name}">
               <div id="detail-cardGame" class="hidden">
-              <h3>${article.released}</h3>
-              <h3>${article.rating}/5 - ${article.ratings_count}</h3>
-              <small>${tags}</small>
+                <h3>${article.released}</h3>
+                <h3> Studio </h3>
+                <h3>${article.rating}/5 - ${article.ratings_count}</h3>
+                <small>${tags}</small>
               </div>
-              <a href = "#pagedetail/${article.id}">${article.name}</a>
+              <a class="title-card" href = "#pagedetail/${article.id}">${article.name}</a>
               <div>     
                 </div> 
-            <div id="icons">
-              ${iconsShow(article.parent_platforms)}
+              <div id="icons">
+                ${iconsShow(article.parent_platforms)}
+              </div>
             </div>
-          </div>
                 `;
           });
           document.querySelector(".page-list .articles").innerHTML = articles;
