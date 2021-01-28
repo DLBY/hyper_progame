@@ -7,7 +7,7 @@ import "@fortawesome/fontawesome-free/js/brands";
 
 import { routes } from './routes';
 import { PageList } from './PageList';
-import { hiddenDetails, showDetails , showMore} from './utility';
+import { hiddenDetails, showDetails , showMore, hiddenShow} from './utility';
 const searchBar = document.querySelector("form");
 let pageArgument;
 
