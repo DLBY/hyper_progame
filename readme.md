@@ -7,4 +7,4 @@
 => `git clone` => `npm run dev`
 
 
-* Fait par https://github.com/DLBY  `:bird:`
+* Fait par https://github.com/DLBY
