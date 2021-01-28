@@ -101,4 +101,14 @@ const getDate = () => {
   ((''+day).length<2 ? '0' : '') + day;
   return `${fullCurrentDate},${fullNextYear}`
 };
-export { iconsShow, storeShow, storeIcons, hiddenShow, showMore, getDate };
+
+const showDetails = (e) => {
+  e.target.classList.add("hidden");
+  e.target.nextElementSibling.classList.remove("hidden");
+};
+
+const hiddenDetails = (e) => {
+  e.target.classList.add("hidden");
+  e.target.previousElementSibling.classList.remove("hidden");
+};
+export { iconsShow, storeShow, storeIcons, hiddenShow, showMore, getDate, showDetails,hiddenDetails};

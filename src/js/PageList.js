@@ -1,5 +1,5 @@
 import { welcome } from './components';
-import { hiddenShow, iconsShow, showMore, getDate } from './utility';
+import { hiddenShow, iconsShow, showMore, getDate, hiddenDetails, showDetails } from './utility';
 const PageList = (argument = "") => {
 
 
@@ -20,12 +20,20 @@ const PageList = (argument = "") => {
         .then((response) => {
 
           response.results.forEach((article) => {
+            
+            let tags = article.tags
+            .filter(tag => tag.language === "eng")
+            .map(tag => tag.name).join(", ");
             const parentPlatforms = article.parent_platforms;
-           
             articles += `
             
             <div class="cardGame">
               <img class="img-card" src="${article.background_image}" alt="${article.name}">
+              <div id="detail-cardGame" class="hidden">
+              <h3>${article.released}</h3>
+              <h3>${article.rating}/5 - ${article.ratings_count}</h3>
+              <small>${tags}</small>
+              </div>
               <a href = "#pagedetail/${article.id}">${article.name}</a>
               <div>     
                 </div> 
@@ -37,6 +45,17 @@ const PageList = (argument = "") => {
           });
           document.querySelector(".page-list .articles").innerHTML = articles;
           hiddenShow();
+
+          // Card Hover
+          const cards =document.querySelectorAll(".img-card");
+          cards.forEach((img) => {
+            img.addEventListener("mouseover", showDetails)
+          })
+
+          document.querySelectorAll("#detail-cardGame").forEach((detail) => {
+            detail.addEventListener("mouseleave", hiddenDetails)
+          })
+
         });
     };
 

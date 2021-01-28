@@ -8,6 +8,20 @@ $white: #FFFFFF;
 margin:50px;
 }
 
+@mixin grid-card {
+  display: grid;
+  justify-content: space-between;
+  justify-items: center;
+  grid-template-columns: repeat(3, 32%);
+  grid-template-rows: repeat(auto, 350px);
+}
+
+.grid-container {
+  @include grid-card;
+}
+body {
+  @include margins;
+}
 * {
   margin:0;
   padding:0;
@@ -16,7 +30,6 @@ margin:50px;
 
 html {
   height: 100%;
-  margin:50px;
   font-family: 'Open Sans', sans-serif;
   font-size: 16px;
 }
@@ -34,6 +47,38 @@ p {
   color: $white;
 }
 
+small {
+  color: $white;
+}
+//links animation
+a, a:visited {
+	text-decoration: none;
+	position: relative;
+	
+	&:after {
+		content: '';
+		height: 3px;
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		width: 0%;
+		background: $primary;
+		transition: 0.2s;
+	}
+
+	&:hover:after {
+		width: 100%;
+	}
+	
+	&.block {
+		display: block;
+		padding: 0.5em;
+		
+		&:hover {
+			background: #eee;
+		}
+  }
+}
 .title  {
   font-weight: 600;
   text-decoration: none;
@@ -92,9 +137,13 @@ header {
 }
 
 // select
+
+.selectpointer {
+  cursor: pointer;
+}
+
 select {
   // Additional resets for further consistency
-  cursor: pointer;
   background-color: $primary;
   color:$white;
   border: none;
@@ -133,17 +182,14 @@ $btn-bkg: $primary;
   }
 }
 //grid
-.grid-container {
-  display: grid;
-  justify-content: space-between;
-  justify-items: center;
-  grid-template-columns: repeat(3, 32%);
-  grid-template-rows: repeat(auto, 350px);
+.detail-card {
+  height: 15vw;
+  width: 100%;
+  overflow: hidden;
 }
 
 .img-card {
-  height: 15vw;
-  width: 100%;
+  @extend .detail-card;
   object-fit: cover;
 }
 
