@@ -42,7 +42,7 @@ const PageList = (argument = "") => {
             articles += `
             
               <div class="cardGame">
-              <img src="${article.background_image}" alt="${article.name}">
+            
               <a href = "#pagedetail/${article.id}">${article.name}</a>
               <div>
               </div>

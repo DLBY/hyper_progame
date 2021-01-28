@@ -46,4 +46,13 @@ const iconsShow = (platforms) => {
   });
   return icons
 }
-export { iconsShow };
+
+const storeShow = (game) => {
+  let iconsStore = ""
+  game.stores.forEach(store => {
+      let iconStore = store.store.slug;
+      iconsStore += storeIcons[`${iconStore}`]
+  })
+  return iconsStore;
+}
+export { iconsShow, storeShow, storeIcons }

@@ -211,16 +211,59 @@ footer {
   justify-content: space-between;
 }
 
-.title-detail {
+.title-rating {
   display: flex;
-  flex-direction: row;
-  align-items: flex-end;
   justify-content: space-between;
+  align-items: baseline
+}
+.title-detail {
+  @extend .title;
+  color:$white;
+}
+
+.rating {
+  @extend .title;
+  font-size: 2.5vw;
 }
 
 h2 {
   @extend .saywelcome;
   font-size: 2.5vw;
+}
+
+h3 {
+  font-weight: bold;
+  color:$white;
+}
+
+// Section detail grid
+.grid-detail {
+  display: grid;
+  justify-content: space-between;
+  grid-template-columns: repeat(4, 20%);
+  grid-template-rows: repeat(auto, 200px);
+  grid-gap: 30px;
+  margin-top: 50px;
+}
+
+.grid-screen {
+  display: grid;
+  justify-content: center;
+  grid-template-columns: repeat(2, 48%);
+  grid-gap: 20px;
+}
+
+.grid-screen img {
+  width:100%;
+}
+
+#youtube-video {
+  display:flex;
+  justify-content: space-between;
+}
+
+.first-yt {
+  width: 60%;
 }
 //responsive
 @media #{$small} {
@@ -236,7 +279,7 @@ h2 {
     }
   }
 
-@media #{$medium} {
+  @media #{$medium} {
   select {
     width:10em;
   }
