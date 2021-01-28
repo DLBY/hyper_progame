@@ -53,11 +53,52 @@ const storeShow = (game) => {
       let iconStore = store.store.slug;
       iconsStore += `
       <div>
-      <a class="store-name" href="${store.store.url}">${store.store.name}</a>
+      <a class="store-name" href=${store.url}>${store.store.name}</a>
       ${storeIcons[iconStore]}
       </div>
   `
   })
   return iconsStore;
 }
-export { iconsShow, storeShow, storeIcons };
+
+const hiddenShow = () => {
+
+  document.querySelectorAll(".cardGame").forEach((card, index) => {
+      if (index > 8) {
+          card.classList.add("hidden")
+      }
+  })
+}
+
+const showMore = () => {
+  let countShowMore = 0;
+  const btnShowMore = document.getElementById("loadmore");
+
+  btnShowMore.addEventListener("click", () => {
+      countShowMore++;
+      document.querySelectorAll(".cardGame.hidden").forEach((card, index) => {
+          if (index <= 8) {
+              card.classList.remove("hidden")
+          }
+      });
+      console.log("test", countShowMore);
+      if (countShowMore >= 2) {
+          btnShowMore.style.display = "none";
+      }
+  })
+}
+const getDate = () => {
+  let dateNow = new Date();
+  let month = dateNow.getMonth()+1;
+  let day = dateNow.getDate();
+  let fullCurrentDate = dateNow.getFullYear() + '-' +
+  ((''+month).length<2 ? '0' : '') + month + '-' +
+  ((''+day).length<2 ? '0' : '') + day;
+
+  // get current year+1
+  let fullNextYear = dateNow.getFullYear()+1 + '-' +
+  ((''+month).length<2 ? '0' : '') + month + '-' +
+  ((''+day).length<2 ? '0' : '') + day;
+  return `${fullCurrentDate},${fullNextYear}`
+};
+export { iconsShow, storeShow, storeIcons, hiddenShow, showMore, getDate };

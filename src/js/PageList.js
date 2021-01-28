@@ -1,27 +1,7 @@
 import { welcome } from './components';
-import { iconsShow } from './utility';
+import { hiddenShow, iconsShow, showMore, getDate } from './utility';
 const PageList = (argument = "") => {
 
-  let show = 0;
-  const getMaxGames = () => {
-    show = 0;
-    document.getElementById("load-div").innerHTML = "";
-    let game = document.getElementsByClassName("cardGame");
-
-    document.getElementsByClassName("cardgame").forEach((game) => {
-      game.classList.add("hidden");
-    });
-    for (let i = 0; i < 27; i++) {
-      if (i > 8) {
-        document.getElementById("load-div").innerHTML = `<div id ="loadmore" class="loadBtn">Show more</div>`;
-        break;
-      }
-      if (games[i].classList.contains(e.target.value)) {
-        games[i].classList.remove("hidden");
-        show++;
-      }
-    }
- };
 
   const preparePage = () => {
     
@@ -30,7 +10,9 @@ const PageList = (argument = "") => {
     const fetchList = (url, argument) => {
       let finalURL = url;
       if (argument) {
-        finalURL = url + "?search=" + argument + "&page_size=27";
+          finalURL = url + "?search=" + argument + "&page_size=27";
+      } else {
+          finalURL = url + "?dates=" + getDate() + "&page_size=27";
       }
 
       fetch(`${finalURL}`)
@@ -54,6 +36,7 @@ const PageList = (argument = "") => {
                 `;
           });
           document.querySelector(".page-list .articles").innerHTML = articles;
+          hiddenShow();
         });
     };
 
@@ -78,5 +61,6 @@ const PageList = (argument = "") => {
   };
 
   render();
+  showMore();
 }
 export { PageList };

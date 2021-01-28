@@ -5,10 +5,8 @@ $primary: #C70A30;
 $white: #FFFFFF;
 
 @mixin margins {
-  margin-right: 4em;
-  margin-left: 4em;
+margin:50px;
 }
-
 
 * {
   margin:0;
@@ -18,6 +16,7 @@ $white: #FFFFFF;
 
 html {
   height: 100%;
+  margin:50px;
   font-family: 'Open Sans', sans-serif;
   font-size: 16px;
 }
@@ -25,7 +24,6 @@ html {
 body {
   position: relative;
   min-height: 100%;
-  margin: 50px;
   background-color:$dark;
   padding-bottom: 5em;
   -moz-box-sizing: border-box; 
@@ -196,7 +194,7 @@ footer {
   align-items: flex-end;
   height: 45vw;
   width: 100%;
-  background-position: center;
+  // background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
 }
@@ -281,7 +279,10 @@ h3 {
 
 #youtube-mini {
   display:flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
+}
+.mini {
+  margin:1em;
 }
 .first-yt {
   width: 60%;

@@ -49,7 +49,12 @@ const PageDetail = (argument) => {
                     for (let i = 1 ; i < 4 ; i++){
                       if (response.results[i]) {
                       youtubeMini += `
-                      <iframe width="30%" height="315" src="https://www.youtube.com/embed/${response.results[i].external_id}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`
+                      <div class="mini">
+                      <iframe width="100%" height="315" src="https://www.youtube.com/embed/${response.results[i].external_id}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                      <div>
+                      <h3>${response.results[0].name}</h3></div></div>`
+                      
+                      
                     }
                   }
                     document.getElementById("youtube-mini").innerHTML = youtubeMini;
@@ -124,7 +129,7 @@ const PageDetail = (argument) => {
 
               <div class="grid-detail">
               <p><b>Release</b><br>${response.released}</p>
-              <p><b>Developer</b><br>${developers}</p>
+              <div id="developersgame"></div>
               <p><b>Platforms</b><br>${platforms}</p>
               <p><b>Publishers</b><br>${publishers}</p>
               <p><b>Genre</b><br>${genres}</p>
