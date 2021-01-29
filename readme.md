@@ -1,6 +1,6 @@
 # The Hyper Progame
 
-## Lien pour visiter : https://dlby.github.io/hyper_progame/ (ne fonctionne pas actuellement)
+## Lien pour visiter : https://dlby.github.io/hyper_progame/ 
 
 ### En local
 
